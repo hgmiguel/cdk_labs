@@ -1,6 +1,7 @@
 {
   "app": "python3 app.py",
   "context": {
-    "bucket_name": "hgmiguel.mx.test"
+    "bucket_name": "hgmiguel.mx.test",
+    "s3_hash_parameter": "/s3_hash"
   }
 }

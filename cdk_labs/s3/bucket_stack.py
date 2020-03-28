@@ -52,6 +52,5 @@ class S3BucketStack(core.Stack):
 
 
         #create an S3 bucket
-        s3Bucket = s3.Bucket(self, 'Bucket', bucket_name=f'{bucket_name}-{hash_value}')
+        s3Bucket = s3.Bucket(self, 'Bucket', bucket_name=f'{bucket_name}-{hash_value}', encryption=s3.BucketEncryption.KMS)
         core.Tag.add(s3Bucket, "key", "value")
-

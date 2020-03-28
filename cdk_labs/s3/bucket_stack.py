@@ -3,11 +3,15 @@ from aws_cdk import (
     core
 )
 
+import uuid
+
 class S3BucketStack(core.Stack):
     def __init__(self, scope: core.Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
         #create an S3 bucket
-        s3Bucket = s3.Bucket(self, 'Bucket', bucket_name=self.node.try_get_context("bucket_name"))
+        hash = uuid.uuid4().hex[:6]
+        bucket_name = self.node.try_get_context("bucket_name")
+        s3Bucket = s3.Bucket(self, 'Bucket', bucket_name=f'{bucket_name}-{hash}')
         core.Tag.add(s3Bucket, "key", "value")
 

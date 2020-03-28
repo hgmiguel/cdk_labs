@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
 from aws_cdk import core
-
-from cdk_labs.cdk_labs_stack import CdkLabsStack
+from cdk_labs.s3.bucket_stack import S3BucketStack
 
 
 app = core.App()
-CdkLabsStack(app, "cdk-labs")
+S3BucketStack(app, "cdk-labs")
 
 app.synth()
